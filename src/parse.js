@@ -1,7 +1,7 @@
-const {Builder, By, Key, until} = require('selenium-webdriver');
+const {Builder, By, Key} = require('selenium-webdriver');
 
-const parseSearch = async(request) => {
-    const driver = new Builder().forBrowser('chrome').build()
+const parseSearch = async(request, driver) => {
+    
     try {
         await driver.get('https://yandex.ru');
         await driver.findElement(By.css('#text')).sendKeys(request, Key.RETURN);
@@ -29,12 +29,10 @@ const parseSearch = async(request) => {
             final.push(link)
                 
         }
-        console.log(final);
+        return final;
     } catch(e) {
         console.log(e)
     }
-
-    await driver.quit()
 }
 
 module.exports = parseSearch
