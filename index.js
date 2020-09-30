@@ -1,7 +1,8 @@
 const requests = require('./request.json');
 const parseAllRequests = require('./src/requests');
 const getJsonName = require('./src/getJsonName');
-const getToday = require('./src/getToday')
+const getToday = require('./src/getToday');
+const getDayName = require('./src/getDayName');
 const fs = require('fs');
 
 
@@ -15,11 +16,12 @@ const mainParse = async() => {
     json[today] = await getTodayData()
     fs.writeFileSync(path, JSON.stringify(json));
 }
-// parseAllRequests(requests)
 const getTodayData = async() => {
     const result = {
+        "day": getDayName((new Date()).getDay()),
         "data": await parseAllRequests(requests)
     }
     return result;
 }
 mainParse()
+

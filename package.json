@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "selenium-webdriver": "^4.0.0-alpha.7"
+    "nodemailer": "^6.4.11",
+    "selenium-webdriver": "^4.0.0-alpha.7",
+    "xlsx": "^0.16.7"
   }
 }
