@@ -5,7 +5,7 @@ const parseAllRequests = async(requests) => {
     const driver = new Builder().forBrowser('firefox').build()
     const result = {}
     for await (const req of requests) {
-        
+        console.log('Делаем запрос:', req)
         result[req] = await parseSearch(req, driver);
     }
 
